@@ -1,0 +1,30 @@
+server:
+  port: 8085
+spring:
+  application:
+    name: crew-service
+  datasource:
+    #数据库是docker mysql useSSL=false
+    url: jdbc:mysql://192.168.1.105:3306/emp?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: 123456
+  rabbitmq:
+    host: 192.168.1.105
+    username: zacks
+    password: 123456
+    virtual-host: /emp
+  redis:
+    host: 192.168.1.105
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10000/eureka
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+    instance-id: ${eureka.instance.ip-address}.${server.port}
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 15
+
+mybatis:
+  type-aliases-package: com.emporium.crew.pojo

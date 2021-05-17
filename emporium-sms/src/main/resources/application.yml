@@ -1,0 +1,24 @@
+server:
+  port: 8086
+spring:
+  application:
+    name: sms-service
+  rabbitmq:
+    host: 192.168.1.105
+    username: zacks
+    password: 123456
+    virtual-host: /emp
+  redis:
+    host: 192.168.1.105
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10000/eureka
+
+emp:
+  sms:
+    accessKeyId:
+    accessKeySecret:
+    signName:
+    verifyCodeTemplate:

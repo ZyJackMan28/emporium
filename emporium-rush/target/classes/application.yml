@@ -1,0 +1,44 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: rush-service
+  datasource:
+    #数据库是docker mysql useSSL=false
+    url: jdbc:mysql://192.168.1.105:3306/emp?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: 123456
+  data:
+    elasticsearch:
+      cluster-name: elasticsearch
+      cluster-nodes: 192.168.1.105:9300
+  rabbitmq:
+    host: 192.168.1.105
+    username: zacks
+    password: 123456
+    virtual-host: /emp
+  jackson:
+    default-property-inclusion: non_null # 配置json处理时忽略空值
+  resources:
+    add-mappings: true
+    chain:
+      enabled: true
+      gzipped: true
+      html-application-cache: true
+    cache:
+      period: 3600m
+ep:
+  jwt:
+    pubKeyPath: E:\\temp\\rsa\\rsa.pub # 公钥地址
+    cookieName: EMP_TOKEN
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10000/eureka
+    registry-fetch-interval-seconds: 5
+  instance:
+    instance-id: ${spring.application.name}:${server.port}
+    prefer-ip-address: true  #当你获取host时，返回的不是主机名，而是ip
+    ip-address: 127.0.0.1
+    lease-expiration-duration-in-seconds: 10 #10秒不发送九过期
+    lease-renewal-interval-in-seconds: 5 #每隔5秒发一次心跳

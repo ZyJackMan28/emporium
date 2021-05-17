@@ -1,0 +1,37 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: item-service
+  datasource:
+    #数据库是docker mysql useSSL=false
+    url: jdbc:mysql://192.168.1.105:3306/emp?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: 123456
+  rabbitmq:
+    host: 192.168.1.105
+    username: zacks
+    password: 123456
+    virtual-host: /emp
+    template:
+      retry:
+        enabled: true
+        initial-interval: 10000ms #初始化重试10s/重试
+        max-interval: 30000ms
+        multiplier: 2 #第二次重试2 * 10000 最大重试不超过 max-interval
+      exchange: emporium.item.exchange
+    publisher-confirms: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10000/eureka
+    fetch-registry: false
+  instance:
+    lease-renewal-interval-in-seconds: 5 # 5秒钟发送一次心跳
+    lease-expiration-duration-in-seconds: 10 # 10秒不发送就过期
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+# mybatis日志
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

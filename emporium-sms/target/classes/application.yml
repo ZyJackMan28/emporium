@@ -1,0 +1,24 @@
+server:
+  port: 8086
+spring:
+  application:
+    name: sms-service
+  rabbitmq:
+    host: 172.20.10.105
+    username: zacks
+    password: 123456
+    virtual-host: /emp
+  redis:
+    host: 172.20.10.105
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10000/eureka
+
+emp:
+  sms:
+    accessKeyId: LTAI5tJw8ZbuzNTqJUwSoQcH
+    accessKeySecret: bk6gQhA9KQ05FX1Pp30AXTcFlkM28U
+    signName: emporium
+    verifyCodeTemplate: SMS_172597576

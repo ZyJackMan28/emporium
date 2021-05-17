@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>emporium</artifactId>
+        <groupId>com.emporium.parent</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.emporium.search</groupId>
+    <artifactId>emporium-search</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>emporium-search-interface</module>
+        <module>emporium-search-service</module>
+    </modules>
+    <dependencies>
+        <dependency>
+            <groupId>com.emporium.common</groupId>
+            <artifactId>emporium-common</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.emporium.service</groupId>
+            <artifactId>emporium-item-interface</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
+    </dependencies>
+
+
+
+</project>

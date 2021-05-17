@@ -1,0 +1,36 @@
+server:
+  port: 8089
+spring:
+  application:
+    name: order-service
+  datasource:
+    #数据库是docker mysql useSSL=false
+    url: jdbc:mysql://192.168.1.105:3306/emp?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: 123456
+ep:
+  jwt:
+    pubKeyPath: E:\\temp\\rsa\\rsa.pub # 公钥地址
+    cookieName: EMP_TOKEN
+  worker:
+    workerId: 1
+    dataCenterId: 1
+  pay:
+    appID: wx8397f8696b538317
+    mchID: 1473426802
+    key: T6m9iK73b0kn9g5v426MKfHQH7X8rKwb
+    httpConnectTimeoutMs: 1000
+    httpReadTimeoutMs: 8000
+    notifyUrl: http://tb5zv3.natappfree.cc/notify/wxpay
+eureka:
+  client:
+    service-url:
+      defaultZone: http://192.168.1.105:10000/eureka
+    registry-fetch-interval-seconds: 5
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+# mybatis日志
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

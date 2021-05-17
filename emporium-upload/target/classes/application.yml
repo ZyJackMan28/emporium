@@ -1,0 +1,32 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: upload-service
+  servlet:
+    multipart:
+      max-file-size: 10MB
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10000/eureka
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+fdfs:
+  so-timeout: 5000
+  connect-timeout: 2000
+  #上传的图片需要显示缩略图，不要直接展示原图，否则流量消耗特别多，加载慢
+  thumb-image: # 缩略图
+    width: 80
+    height: 40
+  tracker-list: # tracker地址
+    - 172.20.10.105:22122
+#
+image:
+  upload:
+    baseUrl: http://images.emporium.com/
+    allowType:
+      - image/png
+      - image/jpeg
+      - image/bmp

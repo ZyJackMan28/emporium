@@ -1,0 +1,48 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.emporium.auth.config.JwtProperties",
+      "name": "ep.jwt",
+      "type": "com.emporium.auth.config.JwtProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.emporium.auth.config.JwtProperties",
+      "name": "ep.jwt.cookie-name",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.emporium.auth.config.JwtProperties",
+      "defaultValue": 0,
+      "name": "ep.jwt.expire",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.emporium.auth.config.JwtProperties",
+      "name": "ep.jwt.pri-key-path",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.emporium.auth.config.JwtProperties",
+      "name": "ep.jwt.private-key",
+      "type": "java.security.PrivateKey"
+    },
+    {
+      "sourceType": "com.emporium.auth.config.JwtProperties",
+      "name": "ep.jwt.pub-key-path",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.emporium.auth.config.JwtProperties",
+      "name": "ep.jwt.public-key",
+      "type": "java.security.PublicKey"
+    },
+    {
+      "sourceType": "com.emporium.auth.config.JwtProperties",
+      "name": "ep.jwt.secret",
+      "type": "java.lang.String"
+    }
+  ]
+}

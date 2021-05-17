@@ -1,0 +1,12 @@
+com\emporium\item\pojo\Sku.class
+com\emporium\item\api\CategoryApi.class
+com\emporium\item\api\BrandApi.class
+com\emporium\item\pojo\SpuDetail.class
+com\emporium\item\api\SpecificationApi.class
+com\emporium\item\pojo\Category.class
+com\emporium\item\pojo\SpecGroup.class
+com\emporium\item\pojo\Brand.class
+com\emporium\item\api\MerchandiseApi.class
+com\emporium\item\pojo\Stock.class
+com\emporium\item\pojo\Spu.class
+com\emporium\item\pojo\SpecParam.class

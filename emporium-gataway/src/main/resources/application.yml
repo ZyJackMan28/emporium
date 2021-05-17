@@ -1,0 +1,55 @@
+server:
+  port: 10001
+spring:
+  application:
+    name: emporium-gateway
+ep:
+  jwt:
+    pubKeyPath: E:\\temp\\rsa\\rsa.pub # 公钥地址
+    cookieName: EMP_TOKEN
+  filter:
+    allowPaths:
+      - /api/auth
+      - /api/search
+      - /api/user/register
+      - /api/user/check
+      - /api/user/code
+      - /api/item
+      - /zuul
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10000/eureka
+    registry-fetch-interval-seconds: 5 #默认向eureka 5/s拉取一次服务列表
+zuul:
+  prefix: /api
+  routes:
+    item-service: /item/** #http://lynx.emporium.com/api/item/--brand/page?key=&page=1&rows=5&sortBy=id&desc=false
+    search-service: /search/**
+    crew-service: /user/**
+    auth-service: /auth/**
+    cart-service: /cart/**
+    order-service: /order/**
+    rush-service: /seckill/**
+    # 映射到微服务,并删除前缀
+    upload-service: #文件上传经过zuul需要特殊处理
+      path: /upload/**
+      serviceId: upload-service
+      strip-prefix: false # 如果不配置www.lynx.emporium.com/api/upload/前面被映射到微服务   只剩下images(images)
+  add-host-header: true
+  sensitive-headers:
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMillisecond: 60000 # 熔断超时时长：10000ms
+ribbon:
+  #请求连接超时
+  ConnectionTimeout: 4000
+  #请求处理超时
+  ReadTimeout: 60000
+  MaxAutoRetries: 0 #当前服务重试次数
+  MaxAutoRetriesNextServer: 0 #切换服务重试次数

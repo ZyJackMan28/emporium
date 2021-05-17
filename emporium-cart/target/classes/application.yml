@@ -1,0 +1,21 @@
+server:
+  port: 8088
+spring:
+  application:
+    name: cart-service
+  redis:
+    host: 192.168.1.105
+ep:
+  jwt:
+    pubKeyPath: E:\\temp\\rsa\\rsa.pub # 公钥地址
+    cookieName: EMP_TOKEN
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10000/eureka
+    registry-fetch-interval-seconds: 10 #拉取服务时间---拉取服务提供者提供的服务/每10s
+  instance:
+    lease-renewal-interval-in-seconds: 5 # 每隔5秒发送一次心跳
+    lease-expiration-duration-in-seconds: 10 # 10秒不发送就过期
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
