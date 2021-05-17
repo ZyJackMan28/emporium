@@ -8,7 +8,8 @@
 4. you must update your all .yml files (jdbc,redis.mongoDB,ElasticSearch)
 5. import emp.sql (you can use local or remote database)
 6. configure your nginx.conf (or decide without reversal proxy on your own)
-7. enjoy it 
+7. you can just run the project only with Insomnia  or Postman RESTful tools or you need to run emporium-management-web and emporium-portal recommended.
+8. enjoy it
 
 ## Develop Environment
 
@@ -30,9 +31,31 @@ IDEA2020.2 + MAVEN + Spring Cloud (Distributed Base)
 
 ## 2. 模块设计
 
-#### a.后台管理主要涉及商品的CRUD，所以emporium-item商品后台管理的核心模块，并为其他模块提供基础的接口
+**a. 通用工具类和VO，异常捕获等统一放在emporium-common模块下**
 
+**b. 所有微服务都统一注册到 emporium-registry模块中**
 
+**c. emporium-gateway作为微服务的网关**
+
+**d.商品管理的基本模块以及接口设计emporium-item,并为其他服务提供设计接口**
+
+**e.文件上传模块 emporium-upload**
+
+**f.前台页面搜索模块 emporium-search**
+
+**g.用户鉴权 emporium-auth**
+
+**h. 购物车模块 emporium-cart**
+
+**i. 用户注册与登陆模块 emporium-crew**
+
+**j. 用户下单支付模块 emporium-order**
+
+**k.短信发送与验证模块 emporium-sms**
+
+## Note
+
+本项目的后端运行环境在CentOS7.2下完成的，所以项目中的MySQL运行在Docker容器里, Nginx，Redis, RabbitMQ等所有配置IP和端口号需要自行配置，或采用本项目中CentOS7默认环境，但.yml文件中的配置端口等个别配置需要根据你的环境进行配置
 
 
 
