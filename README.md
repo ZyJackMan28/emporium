@@ -2,7 +2,7 @@
 
 ## **How to play**
 
-1. git clone `https://github.com/codingXiaxw/seckill.git`
+1. git clone `https://github.com/ZyJackMan28/emporium.git`
 2. open IDEA -->  File  -->  New  --> Open 
 3. choose the tpom.xml under the project，open it
 4. you must update your all .yml files (jdbc,redis.mongoDB,ElasticSearch)
